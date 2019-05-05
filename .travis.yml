@@ -22,6 +22,10 @@ after_success:
   - docker push amolkumar56/multi-worker
 deploy:
   provider: heroku
+  script: 
+    # push to dockerhub & heroku 
+    docker push registry.heroku.com/docker-react-vapp/web; 
+    heroku container: web release --app "docker-react-vapp"
   api_key:
     secure: $HEROKU_TOKEN
   app: "docker-react-vapp"
