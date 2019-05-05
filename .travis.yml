@@ -20,3 +20,8 @@ after_success:
   - docker push amolkumar56/multi-nginx
   - docker push amolkumar56/multi-server
   - docker push amolkumar56/multi-worker
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_TOKEN
+  app: "docker-react-vapp"
